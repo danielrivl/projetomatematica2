@@ -53,3 +53,19 @@ function calcularAreaCone() {
     const area = Math.PI * raio * (raio + geratriz);
     document.getElementById("coneResultado").textContent = `Área do Cone: ${area}`;
 }
+
+function calcularCilindro() {
+    const raio = parseFloat(document.getElementById("raio").value);
+    const altura = parseFloat(document.getElementById("altura").value);
+
+    if (isNaN(raio) || isNaN(altura)) {
+        alert("Por favor, insira valores válidos para o raio e a altura.");
+        return;
+    }
+
+    const volume = Math.PI * Math.pow(raio, 2) * altura;
+    const areaSuperficie = 2 * Math.PI * raio * (raio + altura);
+
+    document.getElementById("volume").textContent = volume.toFixed(2);
+    document.getElementById("areaSuperficie").textContent = areaSuperficie.toFixed(2);
+}
