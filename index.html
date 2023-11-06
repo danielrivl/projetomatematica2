@@ -43,12 +43,38 @@
 
                     <script src="main.js"></script>    
                     <img src="/home/aluno/Downloads/projetomatematica2-main/imagens/microondas.jpeg">
-                    <h2>Cubo</h2>
-                    <label for="cuboLado">Lado do Cubo:</label>
-                    <input type="number" id="cuboLado">
-                    <button onclick="calcularVolumeCubo()">Calcular Volume</button>
-                    <button onclick="calcularAreaCubo()">Calcular Área</button>
-                    <p id="cuboResultado"></p>
+                    <h1>Calculadora de Cilindro</h1>
+
+                    <label for="raio">Raio do cilindro:</label>
+                    <input type="number" id="raio" placeholder="Raio" step="0.01">
+                    <br><br>
+                
+                    <label for="altura">Altura do cilindro:</label>
+                    <input type="number" id="altura" placeholder="Altura" step="0.01">
+                    <br><br>
+                
+                    <button onclick="calcularCilindro()">Calcular</button>
+                
+                    <p>Volume do cilindro: <span id="volume"></span></p>
+                    <p>Área da superfície do cilindro: <span id="areaSuperficie"></span></p>
+                
+                    <script>
+                        function calcularCilindro() {
+                            const raio = parseFloat(document.getElementById("raio").value);
+                            const altura = parseFloat(document.getElementById("altura").value);
+                
+                            if (isNaN(raio) || isNaN(altura)) {
+                                alert("Por favor, insira valores válidos para o raio e a altura.");
+                                return;
+                            }
+                
+                            const volume = Math.PI * Math.pow(raio, 2) * altura;
+                            const areaSuperficie = 2 * Math.PI * raio * (raio + altura);
+                
+                            document.getElementById("volume").textContent = volume.toFixed(2);
+                            document.getElementById("areaSuperficie").textContent = areaSuperficie.toFixed(2);
+                        }
+                    </script>
                     </section>
                     <section>
                     <h1>3-Máquina de lavar roupa</h1>
